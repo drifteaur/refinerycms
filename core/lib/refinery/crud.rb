@@ -266,8 +266,8 @@ module Refinery
             def update_positions
               previous = nil
               params[:ul].each do |_, list|
-                list.each do |index, hash|
-                  moved_item_id = hash['id'].split(/#{singular_name}\\_?/)
+                list.sort.map { |item| item[1] }.each_with_index do |hash, index|
+                  moved_item_id = hash['id'].split(/#{singular_name}\\_?/).reject(&:empty?)
                   @current_#{singular_name} = #{class_name}.find_by_id(moved_item_id)
 
                   if @current_#{singular_name}.respond_to?(:move_to_root)
