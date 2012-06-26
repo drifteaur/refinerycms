@@ -41,12 +41,6 @@ module Refinery
         dummies[2].lft.should eq(1)
         dummies[2].rgt.should eq(2)
       end
-      
-      it "calls rebuild!" do
-        Refinery::CrudDummy.should_receive(:rebuild!)
-
-        post :update_positions, {"ul"=>{"0"=>{"0"=>{"id"=>"crud_dummy_1"}}}}
-      end  
     end
 
   end
