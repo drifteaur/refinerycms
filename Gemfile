@@ -95,3 +95,4 @@ gem 'jquery-rails', '~> 2.0.0'
 if File.exist?(File.expand_path('../.gemfile', __FILE__))
   eval(File.read(File.expand_path('../.gemfile', __FILE__)))
 end
+gem 'refinerycms-jauzas', :path => 'spec/dummy/vendor/extensions'
