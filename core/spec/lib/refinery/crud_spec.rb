@@ -31,15 +31,17 @@ module Refinery
       it "orders dummies" do
         post :update_positions, {"ul"=>{"0"=>{"0"=>{"id"=>"crud_dummy_3"}, "1"=>{"id"=>"crud_dummy_2"}, "2"=>{"id"=>"crud_dummy_1"}}}}
         
-        dummies = Refinery::CrudDummy.all
-        dummies[0].lft.should eq(5)
-        dummies[0].rgt.should eq(6)
+        dummy = Refinery::CrudDummy.find_by_id(1)
+        dummy.lft.should eq(5)
+        dummy.rgt.should eq(6)
         
-        dummies[1].lft.should eq(3)
-        dummies[1].rgt.should eq(4)
-       
-        dummies[2].lft.should eq(1)
-        dummies[2].rgt.should eq(2)
+        dummy = Refinery::CrudDummy.find_by_id(2)
+        dummy.lft.should eq(3)
+        dummy.rgt.should eq(4)
+
+        dummy = Refinery::CrudDummy.find_by_id(3)
+        dummy.lft.should eq(1)
+        dummy.rgt.should eq(2)
       end
     end
 
